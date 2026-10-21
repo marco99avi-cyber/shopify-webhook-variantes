@@ -1,0 +1,506 @@
+{
+  "generado": "2026-10-21T19:30:00Z",
+  "tienda": "agranelmadrid.com",
+  "nota": "Muestra real (textos tal cual de Shopify, 21/10/2026) para tests. No es el catálogo completo.",
+  "productos": [
+    {
+      "handle": "copos-de-avena",
+      "titulo": "Copos de Avena",
+      "tipo": "Cereales",
+      "etiquetas": [
+        "alto-en-proteina",
+        "avena",
+        "cereales",
+        "desayuno",
+        "fibra",
+        "sin-azucar-anadido",
+        "vegano"
+      ],
+      "ingredientes": "100% Copos de avena integral (Avena sativa).\nLaminado al vapor, sin azúcar añadido.",
+      "alergenos": "Contiene gluten (avena).",
+      "nutricional": "Valores medios orientativos por 100 g:\nEnergía 1561 kJ / 372 kcal\nGrasas 7 g (de las cuales saturadas 1,3 g)\nHidratos de carbono 60 g (de los cuales azúcares 1,1 g)\nProteínas 13 g\nSal 0 g\nFibra 10 g\nValores orientativos; pueden variar según lote y origen.",
+      "gramosRacion": 40,
+      "unidadRacion": "ración"
+    },
+    {
+      "handle": "almendras-chocolate-negro-a-granel",
+      "titulo": "Almendra Bañada en Chocolate",
+      "tipo": "Frutos Secos",
+      "etiquetas": [
+        "chocolate",
+        "chocolates",
+        "frutos-secos",
+        "snack"
+      ],
+      "ingredientes": "Chocolate negro (82 %), azúcar, pasta de cacao, manteca de cacao, emulgentes (lecitina de soja, E-476), aroma, cacao, almendra tostada y agentes de recubrimiento (E-904, E-414). Lista tal como la indica el proveedor.",
+      "alergenos": "Contiene almendra (fruto de cáscara) y soja (lecitina de soja). El proveedor no indica si puede llevar trazas de otros alérgenos, como leche u otros frutos de cáscara: si tienes alguna alergia, consúltanos antes de comprar.",
+      "nutricional": "Valores medios orientativos por 100 g:\nEnergía 2322 kJ / 555 kcal\nGrasas 38 g (de las cuales saturadas 13 g)\nHidratos de carbono 36 g (de los cuales azúcares 30 g)\nProteínas 11 g\nSal 0,02 g\nFibra 6 g\nValores orientativos; pueden variar según lote y origen."
+    },
+    {
+      "handle": "miel-cruda-de-lavanda-cultivada-a-granel",
+      "titulo": "Miel Cruda de Lavanda",
+      "tipo": "Miel",
+      "etiquetas": [
+        "endulzante",
+        "miel"
+      ],
+      "ingredientes": "100% Miel cruda de lavanda.\nNo pasteurizada ni filtrada. Puede cristalizar.",
+      "alergenos": "No contiene alérgenos de declaración obligatoria.",
+      "nutricional": "Valores medios orientativos por 100 g:\nEnergía 1272 kJ / 304 kcal\nGrasas 0 g (de las cuales saturadas 0 g)\nHidratos de carbono 82 g (de los cuales azúcares 82 g)\nProteínas 0,3 g\nSal 0,02 g\nFibra 0,2 g\nNo recomendada a menores de 12 meses por riesgo de botulismo infantil.\nValores orientativos; pueden variar según lote y origen."
+    },
+    {
+      "handle": "arandanos-deshidratados-a-granel",
+      "titulo": "Arándanos Deshidratados",
+      "tipo": "Frutas",
+      "etiquetas": [
+        "frutas-deshidratadas",
+        "vegano",
+        "fibra"
+      ],
+      "ingredientes": "Arándanos rojos deshidratados (Vaccinium macrocarpon), aceite de girasol.\nSin azúcar añadido (los azúcares son naturalmente presentes).",
+      "alergenos": "No contiene alérgenos de declaración obligatoria.",
+      "nutricional": "Valores medios orientativos por 100 g:\nEnergía 1331 kJ / 318 kcal\nGrasas 1,4 g (de las cuales saturadas 0,1 g)\nHidratos de carbono 78 g (de los cuales azúcares 65 g)\nProteínas 0,2 g\nSal 0,01 g\nFibra 5,7 g\nValores orientativos; pueden variar según lote y origen."
+    },
+    {
+      "handle": "espirulina-a-granel",
+      "titulo": "Espirulina",
+      "tipo": "Algas",
+      "etiquetas": [
+        "algas",
+        "alto-en-proteina",
+        "superalimento",
+        "vegano",
+        "sin-azucar-anadido"
+      ],
+      "ingredientes": "100% Espirulina (Arthrospira platensis) en polvo.\nProcedente de cultivos certificados ecológicos.",
+      "alergenos": "No contiene alérgenos de declaración obligatoria.",
+      "nutricional": "Valores medios orientativos por 100 g:\nEnergía 1215 kJ / 290 kcal\nGrasas 7 g (de las cuales saturadas 2 g)\nHidratos de carbono 24 g (de los cuales azúcares 3 g)\nProteínas 57 g\nSal 1 g\nFibra 4 g\nHierro 28 mg (200% VRN)\nVitamina B12 25 µg\nValores orientativos; pueden variar según lote y origen."
+    },
+    {
+      "handle": "matcha-latte-eco-a-granel",
+      "titulo": "Matcha Latte Ecológico",
+      "tipo": "Té",
+      "etiquetas": [
+        "ecologico",
+        "matcha",
+        "sin-gluten",
+        "tes",
+        "vegano"
+      ],
+      "ingredientes": "Té verde matcha en polvo (50%)*, azúcar de caña* (40%), leche de coco en polvo* (8%), vainilla en polvo* (2%). *Procedente de agricultura ecológica.",
+      "alergenos": "No contiene alérgenos de declaración obligatoria.",
+      "nutricional": "Valores medios orientativos por 100 g:\nEnergía 1590 kJ / 380 kcal\nGrasas 7 g (de las cuales saturadas 5 g)\nHidratos de carbono 67 g (de los cuales azúcares 50 g)\nProteínas 8 g\nSal 0,02 g\nFibra 4 g\nCafeína aprox. 30-50 mg por taza.\nValores orientativos; pueden variar según lote y origen."
+    },
+    {
+      "handle": "espirales-de-arroz-integral-espinacas-y-remolacha-ecologico-a-granel",
+      "titulo": "Espirales de Arroz Integral, Espinacas y Remolacha Ecológicas",
+      "tipo": "Pastas",
+      "etiquetas": [
+        "ecologico",
+        "pastas",
+        "sin-azucar-anadido",
+        "sin-gluten",
+        "vegano"
+      ],
+      "ingredientes": "Sémola de arroz integral* (60%), sémola de arroz integral con espinaca* (20%), sémola de arroz integral con remolacha* (20%). *Ingredientes procedentes de la agricultura ecológica.",
+      "alergenos": "No contiene alérgenos de declaración obligatoria ni cereales con gluten entre sus ingredientes; puede contener trazas (envasado en almacén compartido).",
+      "nutricional": "Valores medios orientativos por 100 g:\nEnergía 1507 kJ / 360 kcal\nGrasas 1,8 g (de las cuales saturadas 0,4 g)\nHidratos de carbono 78 g (de los cuales azúcares 1 g)\nProteínas 7 g\nSal 0,01 g\nFibra 3 g\nValores orientativos; pueden variar según lote y origen."
+    },
+    {
+      "handle": "caldo-de-verduras-vegano-a-granel-en-madrid",
+      "titulo": "Caldo de Verduras (Vegano)",
+      "tipo": "Especias",
+      "etiquetas": [
+        "especias",
+        "sin-azucar-anadido",
+        "vegano"
+      ],
+      "ingredientes": null,
+      "alergenos": "Contiene apio.",
+      "nutricional": "Valores medios orientativos por 100 g:\nEnergía 920 kJ / 220 kcal\nGrasas 5 g (de las cuales saturadas 1 g)\nHidratos de carbono 30 g (de los cuales azúcares 12 g)\nProteínas 8 g\nSal 18 g\nValores orientativos; pueden variar según lote y origen."
+    },
+    {
+      "handle": "albaricoque-deshidratado-sin-azucar-a-granel-en-madrid",
+      "titulo": "Albaricoque Deshidratado",
+      "tipo": "Frutas",
+      "etiquetas": [],
+      "ingredientes": "Albaricoque deshidratado. Sin azúcar añadido. Puede contener antioxidante (sulfitos).",
+      "alergenos": "No contiene alérgenos de declaración obligatoria.",
+      "nutricional": "Valores medios orientativos por 100 g:\nEnergía 1020 kJ / 241 kcal\nGrasas 0,5 g (de las cuales saturadas 0,1 g)\nHidratos de carbono 53 g (de los cuales azúcares 48 g)\nProteínas 3,4 g\nSal 0,02 g\nFibra 7,3 g\nValores orientativos; pueden variar según lote y origen."
+    },
+    {
+      "handle": "almendra-cruda-pelada-a-granel-en-madrid",
+      "titulo": "Almendra Cruda Pelada",
+      "tipo": "Frutos Secos",
+      "etiquetas": [],
+      "ingredientes": "Almendra pelada (100%).",
+      "alergenos": "Contiene frutos de cáscara (almendra).",
+      "nutricional": "Valores medios orientativos por 100 g: Energía 579 kcal / 2423 kJ; Grasas 50 g, de las cuales saturadas 3,8 g; Hidratos de carbono 22 g, de los cuales azúcares 4,4 g; Proteínas 21 g; Sal 0 g."
+    },
+    {
+      "handle": "aloe-vera-deshidratado-a-granel-en-madrid",
+      "titulo": "Aloe Vera Lámina",
+      "tipo": "Frutas",
+      "etiquetas": [],
+      "ingredientes": "Aloe vera deshidratado. Puede contener azúcar añadido.",
+      "alergenos": "No contiene alérgenos de declaración obligatoria.",
+      "nutricional": "Valores medios orientativos por 100 g: Energía 330 kcal / 1400 kJ; Grasas 0,5 g, de las cuales saturadas 0,1 g; Hidratos de carbono 80 g, de los cuales azúcares 65 g; Proteínas 1 g; Sal 0,1 g."
+    },
+    {
+      "handle": "anacardo-crudo-a-granel-en-madrid",
+      "titulo": "Anacardo Crudo",
+      "tipo": "Frutos Secos",
+      "etiquetas": [],
+      "ingredientes": null,
+      "alergenos": "Contiene frutos de cáscara (anacardo).",
+      "nutricional": "Valores medios orientativos por 100 g: Energía 2470 kJ / 596 kcal; Grasas 47 g (de las cuales saturadas 8,5 g); Hidratos de carbono 27 g (de los cuales azúcares 6 g); Proteínas 18 g; Sal 0,02 g."
+    },
+    {
+      "handle": "aperitivo-tropical-a-granel-en-madrid",
+      "titulo": "Aperitivo Tropical",
+      "tipo": "Frutas",
+      "etiquetas": [],
+      "ingredientes": "Mezcla de frutas deshidratadas (piña, papaya, mango, coco u otras según disponibilidad). Puede contener azúcar añadido y antioxidante (sulfitos).",
+      "alergenos": "Puede contener sulfitos.",
+      "nutricional": "Valores medios orientativos por 100 g: Energía 320 kcal / 1360 kJ; Grasas 3 g, de las cuales saturadas 2 g; Hidratos de carbono 70 g, de los cuales azúcares 60 g; Proteínas 2 g; Sal 0,1 g."
+    },
+    {
+      "handle": "aroma-de-carne-a-granel-en-madrid",
+      "titulo": "Aroma de Carne",
+      "tipo": "Especias",
+      "etiquetas": [],
+      "ingredientes": "Aromatizante en polvo con sabor a carne. Suele llevar sal, aromas, potenciadores del sabor y extractos de levadura o proteínas hidrolizadas; lista exacta de ingredientes pendiente de confirmar con el proveedor.",
+      "alergenos": "Alérgenos pendientes de confirmar con el proveedor. Es un aromatizante en polvo y este tipo de productos puede llevar gluten, soja, apio, leche o mostaza: si tienes alguna alergia o intolerancia, consúltanos antes de comprar.",
+      "nutricional": "Valores medios orientativos por 100 g: Energía 920 kJ / 220 kcal; Grasas 4 g, de las cuales saturadas 2 g; Hidratos de carbono 25 g, de los cuales azúcares 4 g; Proteínas 20 g; Sal 35 g. Estimación para un aromatizante de este tipo, pendiente de confirmar con la ficha técnica del proveedor."
+    },
+    {
+      "handle": "arroz-basmati-con-curcuma-y-jengibre-ecologico-a-granel-en-madrid",
+      "titulo": "Arroz Basmati con Cúrcuma y Jengibre Ecológico",
+      "tipo": "Arroces",
+      "etiquetas": [],
+      "ingredientes": "Arroz basmati de cultivo ecológico, cúrcuma, jengibre, cebolla, tomate, especias y hierbas aromáticas deshidratadas.",
+      "alergenos": "Composición pendiente de confirmar con la etiqueta del proveedor: puede contener mostaza y trazas de otros alérgenos.",
+      "nutricional": "Valores medios orientativos por 100 g: Energía 1530 kJ / 360 kcal; Grasas 1 g, de las cuales saturadas 0,2 g; Hidratos de carbono 78 g, de los cuales azúcares 1 g; Proteínas 7,5 g; Sal 0,1 g."
+    },
+    {
+      "handle": "arroz-basmati-integral-a-granel-en-madrid",
+      "titulo": "Arroz Basmati Integral",
+      "tipo": "Arroces",
+      "etiquetas": [],
+      "ingredientes": "Arroz basmati integral 100%.",
+      "alergenos": "No contiene alérgenos de declaración obligatoria ni cereales con gluten entre sus ingredientes; puede contener trazas (envasado en almacén compartido).",
+      "nutricional": "Valores medios orientativos por 100 g: energía 1.520 kJ / 360 kcal; grasas 2,8 g (de las cuales saturadas 0,6 g); hidratos de carbono 73 g (de los cuales azúcares 0,7 g); proteínas 7,5 g; sal 0,01 g."
+    },
+    {
+      "handle": "arroz-konjac-a-granel-en-madrid",
+      "titulo": "Arroz Konjac",
+      "tipo": "Pastas",
+      "etiquetas": [],
+      "ingredientes": null,
+      "alergenos": "No contiene alérgenos de declaración obligatoria.",
+      "nutricional": "Valores medios orientativos por 100 g:\nEnergía 34 kJ / 8 kcal\nGrasas 0 g (de las cuales saturadas 0 g)\nHidratos de carbono 3 g (de los cuales azúcares 0 g)\nProteínas 0.2 g\nSal 0.02 g\nFibra 3 g\nValores orientativos; pueden variar según lote y origen."
+    },
+    {
+      "handle": "cobertura-de-chocolate-con-leche-a-granel-en-madrid",
+      "titulo": "Cobertura de Chocolate con Leche",
+      "tipo": "Chocolates",
+      "etiquetas": [],
+      "ingredientes": null,
+      "alergenos": "Contiene leche.",
+      "nutricional": "Valores medios orientativos por 100 g:\nEnergía 2350 kJ / 565 kcal\nGrasas 38 g (de las cuales saturadas 23 g)\nHidratos de carbono 48 g (de los cuales azúcares 46 g)\nProteínas 7.5 g\nSal 0.2 g\nValores orientativos; pueden variar según lote y origen."
+    },
+    {
+      "handle": "cobertura-de-chocolate-negro-48-de-cacao-a-granel-en-madrid",
+      "titulo": "Cobertura de Chocolate Negro (48% de Cacao)",
+      "tipo": "Chocolates",
+      "etiquetas": [],
+      "ingredientes": "Azúcar, pasta de cacao, manteca de cacao, emulgente (lecitina de soja), aroma natural de vainilla. Cacao mínimo 48%.",
+      "alergenos": "Contiene soja.",
+      "nutricional": "Valores medios orientativos por 100 g: Energía 2300 kJ / 550 kcal; Grasas 33 g, de las cuales saturadas 20 g; Hidratos de carbono 55 g, de los cuales azúcares 50 g; Proteínas 6 g; Sal 0,03 g."
+    },
+    {
+      "handle": "cacao-100-puro-en-polvo-a-granel-en-madrid",
+      "titulo": "Cacao 100% Puro en Polvo",
+      "tipo": "Chocolates",
+      "etiquetas": [],
+      "ingredientes": "Cacao puro en polvo desgrasado (100%). Sin azúcares añadidos.",
+      "alergenos": "No contiene alérgenos de declaración obligatoria.",
+      "nutricional": "Valores medios orientativos por 100 g: Energía 1600 kJ / 380 kcal; Grasas 22 g, de las cuales saturadas 13 g; Hidratos de carbono 12 g, de los cuales azúcares 1 g; Proteínas 24 g; Sal 0,1 g."
+    },
+    {
+      "handle": "manteca-de-cacao-a-granel-en-madrid",
+      "titulo": "Manteca de Cacao",
+      "tipo": "Chocolates",
+      "etiquetas": [],
+      "ingredientes": "Manteca de cacao pura (100%).",
+      "alergenos": "No contiene alérgenos de declaración obligatoria.",
+      "nutricional": "Valores medios orientativos por 100 g: Energía 3700 kJ / 900 kcal; Grasas 100 g, de las cuales saturadas 60 g; Hidratos de carbono 0 g, de los cuales azúcares 0 g; Proteínas 0 g; Sal 0 g."
+    },
+    {
+      "handle": "muesli-crujiente-con-chocolate-ecologico-a-granel-en-madrid",
+      "titulo": "Muesli Crujiente con Chocolate Ecológico",
+      "tipo": "Cereales",
+      "etiquetas": [],
+      "ingredientes": "Cereales integrales (avena), chocolate, aceite vegetal y frutos secos. Procedente de agricultura ecológica. Sin azúcares añadidos.",
+      "alergenos": "Contiene gluten y frutos de cáscara.",
+      "nutricional": "Valores medios orientativos por 100 g:\nEnergía: 440 kcal / 1850 kJ\nGrasas: 16 g, de las cuales saturadas 6 g\nHidratos de carbono: 60 g, de los cuales azúcares 18 g\nProteínas: 9 g\nSal: 0,05 g"
+    },
+    {
+      "handle": "soja-amarilla-soja-blanca-a-granel-en-madrid",
+      "titulo": "Soja Amarilla (Soja Blanca)",
+      "tipo": "Legumbres",
+      "etiquetas": [],
+      "ingredientes": "Soja amarilla (soja blanca) 100%.",
+      "alergenos": "Contiene soja.",
+      "nutricional": "Valores medios orientativos por 100 g:\nEnergía 1610 kJ / 385 kcal\nGrasas 20 g (de las cuales saturadas 2.9 g)\nHidratos de carbono 30 g (de los cuales azúcares 7.3 g)\nProteínas 36 g\nSal 0.01 g\nValores orientativos; pueden variar según lote y origen."
+    },
+    {
+      "handle": "soja-roja-ecologica-a-granel-en-madrid",
+      "titulo": "Soja Roja Ecológica",
+      "tipo": "Legumbres",
+      "etiquetas": [],
+      "ingredientes": "Soja roja ecológica (judía adzuki) 100%.",
+      "alergenos": "No contiene alérgenos de declaración obligatoria. La «soja roja» es judía adzuki (Vigna angularis), no soja (Glycine max).",
+      "nutricional": "Valores medios orientativos por 100 g: energía 1.377 kJ / 329 kcal; grasas 0,5 g (de las cuales saturadas 0,2 g); hidratos de carbono 63 g (de los cuales azúcares 0,5 g); proteínas 20 g; sal 0,02 g."
+    },
+    {
+      "handle": "macarron-de-trigo-sarraceno-ecologico-a-granel-en-madrid",
+      "titulo": "Macarrón de Trigo Sarraceno Ecológico",
+      "tipo": "Pastas",
+      "etiquetas": [],
+      "ingredientes": "Harina de trigo sarraceno* y sémola de trigo duro*. (*procedente de agricultura ecológica).",
+      "alergenos": "Contiene gluten (trigo).",
+      "nutricional": "Valores medios orientativos por 100 g: energía 1490 kJ / 352 kcal; grasas 2 g, de las cuales saturadas 0,4 g; hidratos de carbono 70 g, de los cuales azúcares 2 g; proteínas 13 g; sal 0,02 g."
+    },
+    {
+      "handle": "espiral-de-trigo-sarraceno-ecologico-a-granel-en-madrid",
+      "titulo": "Espiral de Trigo Sarraceno Ecológica",
+      "tipo": "Pastas",
+      "etiquetas": [],
+      "ingredientes": "Harina de trigo sarraceno* (100%). *Ingredientes procedentes de la agricultura ecológica.",
+      "alergenos": "No contiene alérgenos de declaración obligatoria.",
+      "nutricional": "Valores medios orientativos por 100 g: Energía 1480 kJ / 350 kcal; Grasas 2,5 g, de las cuales saturadas 0,5 g; Hidratos de carbono 70 g, de los cuales azúcares 1,5 g; Proteínas 12 g; Sal 0,02 g."
+    },
+    {
+      "handle": "espiral-de-espelta-ecologico-a-granel-en-madrid",
+      "titulo": "Espiral de Espelta Ecológica",
+      "tipo": "Pastas",
+      "etiquetas": [],
+      "ingredientes": "Sémola de espelta* y agua. (*procedente de agricultura ecológica).",
+      "alergenos": "Contiene gluten (espelta/trigo).",
+      "nutricional": "Valores medios orientativos por 100 g: energía 1470 kJ / 348 kcal; grasas 2 g, de las cuales saturadas 0,4 g; hidratos de carbono 68 g, de los cuales azúcares 3 g; fibra alimentaria 6 g; proteínas 13 g; sal 0,02 g."
+    },
+    {
+      "handle": "levadura-de-cerveza-a-granel-en-madrid",
+      "titulo": "Levadura de Cerveza",
+      "tipo": "Semillas y superalimentos",
+      "etiquetas": [],
+      "ingredientes": "100% levadura de cerveza (Saccharomyces cerevisiae) desactivada. Sin azúcares añadidos. Producto vegano.",
+      "alergenos": "Contiene gluten (cebada).",
+      "nutricional": "Valores medios orientativos por 100 g:\nEnergía: 350 kcal / 1480 kJ\nGrasas: 5 g, de las cuales saturadas 0,8 g\nHidratos de carbono: 38 g, de los cuales azúcares 5 g\nProteínas: 48 g\nSal: 0,1 g"
+    },
+    {
+      "handle": "levadura-nutricional-a-granel-en-madrid",
+      "titulo": "Levadura Nutricional",
+      "tipo": "Semillas y superalimentos",
+      "etiquetas": [],
+      "ingredientes": "Levadura nutricional desactivada (Saccharomyces cerevisiae) en copos. Sin azúcares añadidos. Producto vegano.",
+      "alergenos": "No contiene alérgenos de declaración obligatoria.",
+      "nutricional": "Valores medios orientativos por 100 g:\nEnergía: 350 kcal / 1480 kJ\nGrasas: 5 g, de las cuales saturadas 1 g\nHidratos de carbono: 35 g, de los cuales azúcares 5 g\nProteínas: 50 g\nSal: 0,1 g"
+    },
+    {
+      "handle": "harina-de-coco-a-granel-en-madrid",
+      "titulo": "Harina de Coco",
+      "tipo": "Harinas",
+      "etiquetas": [],
+      "ingredientes": "Harina de coco (100%).",
+      "alergenos": "Contiene coco (fruto de cáscara).",
+      "nutricional": "Valores medios orientativos por 100 g:\nEnergía: 400 kcal / 1680 kJ\nGrasas: 13 g, de las cuales saturadas 12 g\nHidratos de carbono: 22 g, de los cuales azúcares 9 g\nFibra alimentaria: 39 g\nProteínas: 18 g\nSal: 0,05 g"
+    },
+    {
+      "handle": "harina-de-tritordeum-a-granel-en-madrid",
+      "titulo": "Harina de Tritordeum",
+      "tipo": "Harinas",
+      "etiquetas": [],
+      "ingredientes": "Harina de tritordeum (100%).",
+      "alergenos": "Contiene gluten.",
+      "nutricional": "Valores medios orientativos por 100 g: energía 345 kcal / 1463 kJ; grasas 2 g, de las cuales saturadas 0,4 g; hidratos de carbono 65 g, de los cuales azúcares 2 g; proteínas 12 g; sal 0,01 g."
+    },
+    {
+      "handle": "harina-de-garbanzo-a-granel-en-madrid",
+      "titulo": "Harina de Garbanzo",
+      "tipo": "Harinas",
+      "etiquetas": [],
+      "ingredientes": "Harina de garbanzo (100%).",
+      "alergenos": "No contiene alérgenos de declaración obligatoria. Elaborada a partir de garbanzo.",
+      "nutricional": "Valores medios orientativos por 100 g: energía 387 kcal / 1620 kJ; grasas 6,7 g, de las cuales saturadas 0,7 g; hidratos de carbono 58 g, de los cuales azúcares 11 g; fibra alimentaria 11 g; proteínas 22 g; sal 0,05 g."
+    },
+    {
+      "handle": "harina-de-trigo-media-fuerza-a-granel-en-madrid",
+      "titulo": "Harina de Trigo Media Fuerza",
+      "tipo": "Harinas",
+      "etiquetas": [],
+      "ingredientes": "Harina de trigo (100%).",
+      "alergenos": "Contiene gluten (trigo).",
+      "nutricional": "Valores medios orientativos por 100 g: energía 345 kcal / 1463 kJ; grasas 1,3 g, de las cuales saturadas 0,3 g; hidratos de carbono 72 g, de los cuales azúcares 1,5 g; proteínas 11 g; sal 0,01 g."
+    },
+    {
+      "handle": "proteina-con-creatina-cacao-y-vitaminas-a-granel",
+      "titulo": "Proteína con Creatina, Cacao y Vitaminas",
+      "tipo": "Semillas y superalimentos",
+      "etiquetas": [],
+      "ingredientes": "Proteína en polvo (levadura nutricional inactivada), creatina monohidrato, cacao puro en polvo, hierro, zinc y vitaminas del grupo B (B1, B2, B3, B5, B6, B7, B9 y B12).",
+      "alergenos": null,
+      "nutricional": null
+    },
+    {
+      "handle": "soja-texturizada-fina-a-granel-en-madrid",
+      "titulo": "Soja Texturizada Fina",
+      "tipo": "Legumbres",
+      "etiquetas": [],
+      "ingredientes": "Proteína de soja texturizada (harina de soja desgrasada) 100%.",
+      "alergenos": "Contiene soja. Producto manipulado a granel en un entorno compartido: puede contener trazas de otros alérgenos.",
+      "nutricional": "Valores medios orientativos por 100 g: Energía 1404 kJ / 333 kcal; Grasas 1,2 g, de las cuales saturadas 0,2 g; Hidratos de carbono 20 g, de los cuales azúcares 7 g; Proteínas 52 g; Sal 0,1 g."
+    },
+    {
+      "handle": "hierba-mate-a-granel-en-madrid",
+      "titulo": "Hierba Mate",
+      "tipo": "Infusiones",
+      "etiquetas": [],
+      "ingredientes": "Yerba mate (Ilex paraguariensis). Apto para dieta vegana.",
+      "alergenos": "No contiene alérgenos de declaración obligatoria en su composición.",
+      "nutricional": "Valores medios orientativos por 100 g de infusión preparada: Energía 4 kcal / 17 kJ; Grasas 0 g, de las cuales saturadas 0 g; Hidratos de carbono 0,5 g, de los cuales azúcares 0 g; Proteínas 0 g; Sal 0 g. La infusión apenas aporta calorías; aporta cafeína de forma natural."
+    },
+    {
+      "handle": "regaliz-triturado-a-granel-en-madrid",
+      "titulo": "Regaliz Triturado",
+      "tipo": "Infusiones",
+      "etiquetas": [],
+      "ingredientes": "Raíz de regaliz (Glycyrrhiza glabra) deshidratada y triturada.",
+      "alergenos": "No contiene alérgenos de declaración obligatoria. Un consumo elevado no es recomendable en caso de hipertensión.",
+      "nutricional": "Valores medios orientativos por 100 g de raíz seca: energía 310 kcal/1300 kJ; grasas 1 g, de las cuales saturadas 0,2 g; hidratos de carbono 70 g, de los cuales azúcares 20 g; proteínas 5 g; sal 0,1 g. Preparada en decocción, el aporte por taza es prácticamente nulo."
+    },
+    {
+      "handle": "cacahuetes-con-chocolate-a-granel-en-madrid",
+      "titulo": "Cacahuete Chocolate",
+      "tipo": "Chocolates",
+      "etiquetas": [],
+      "ingredientes": "Cacahuete tostado y cobertura de chocolate (azúcar, pasta de cacao, manteca de cacao, emulgente: lecitina).",
+      "alergenos": "Contiene cacahuetes y puede contener leche y soja (chocolate).",
+      "nutricional": "Valores medios orientativos por 100 g: Energía 2.200 kJ / 530 kcal; Grasas 35 g, de las cuales saturadas 13 g; Hidratos de carbono 40 g, de los cuales azúcares 33 g; Proteínas 13 g; Sal 0,1 g."
+    },
+    {
+      "handle": "cacahuete-frito-con-miel-a-granel-en-madrid",
+      "titulo": "Cacahuete Frito Miel",
+      "tipo": "Frutos Secos",
+      "etiquetas": [],
+      "ingredientes": "Cacahuete, miel, azúcar y aceite vegetal.",
+      "alergenos": "Contiene cacahuetes.",
+      "nutricional": "Valores medios orientativos por 100 g: Energía 2.300 kJ / 550 kcal; Grasas 33 g, de las cuales saturadas 6 g; Hidratos de carbono 38 g, de los cuales azúcares 25 g; Proteínas 20 g; Sal 0,2 g."
+    },
+    {
+      "handle": "canela-cassia-a-granel-en-madrid",
+      "titulo": "Canela Cassia",
+      "tipo": "Especias",
+      "etiquetas": [],
+      "ingredientes": null,
+      "alergenos": "No contiene alérgenos de declaración obligatoria.",
+      "nutricional": "Valores medios orientativos por 100 g: energía 247 kcal / 1035 kJ; grasas 1,2 g, de las cuales saturadas 0,3 g; hidratos de carbono 81 g, de los cuales azúcares 2 g; proteínas 4 g; sal 0,03 g."
+    },
+    {
+      "handle": "canela-ceylan-molida-a-granel-en-madrid",
+      "titulo": "Canela Ceylán Molida",
+      "tipo": "Especias",
+      "etiquetas": [],
+      "ingredientes": "Canela de Ceilán molida (Cinnamomum verum).",
+      "alergenos": "No contiene alérgenos de declaración obligatoria.",
+      "nutricional": "Valores medios orientativos por 100 g: Energía 250 kcal / 1045 kJ; Grasas 1,2 g, de las cuales saturadas 0,3 g; Hidratos de carbono 81 g, de los cuales azúcares 2 g; Proteínas 4 g; Sal 0,03 g."
+    },
+    {
+      "handle": "nuez-moscada-molida",
+      "titulo": "Nuez Moscada Molida",
+      "tipo": "Especias",
+      "etiquetas": [],
+      "ingredientes": "100% Nuez moscada (Myristica fragrans) molida.\nSin sal añadida.",
+      "alergenos": "No contiene alérgenos de declaración obligatoria (la nuez moscada no es un fruto de cáscara a efectos del anexo II del Reglamento (UE) n.º 1169/2011).",
+      "nutricional": null
+    },
+    {
+      "handle": "lino-marron-a-granel-en-madrid",
+      "titulo": "Lino Marrón",
+      "tipo": "Semillas y superalimentos",
+      "etiquetas": [],
+      "ingredientes": "Semillas de lino marrón (Linum usitatissimum) (100%).",
+      "alergenos": "No contiene alérgenos de declaración obligatoria.",
+      "nutricional": "Valores medios orientativos por 100 g: Energía 2230 kJ / 534 kcal; Grasas 42 g, de las cuales saturadas 3,7 g; Hidratos de carbono 29 g, de los cuales azúcares 1,5 g; Fibra alimentaria 27 g; Proteínas 18 g; Sal 0,03 g."
+    },
+    {
+      "handle": "hojas-de-sen-a-granel-en-madrid",
+      "titulo": "Hojas de Sen",
+      "tipo": "Infusiones",
+      "etiquetas": [],
+      "ingredientes": "Sen (Senna alexandrina / Cassia angustifolia) en hoja seca.",
+      "alergenos": "No contiene alérgenos de declaración obligatoria.",
+      "nutricional": "Valores medios orientativos por 100 g de producto seco: Energía 270 kcal / 1130 kJ; Grasas 4 g, de las cuales saturadas 1 g; Hidratos de carbono 50 g, de los cuales azúcares 3 g; Proteínas 11 g; Sal 0,1 g. El aporte en la infusión ya preparada es prácticamente nulo."
+    },
+    {
+      "handle": "te-verde-sencha-a-granel-en-madrid",
+      "titulo": "Té Verde Sencha",
+      "tipo": "Té",
+      "etiquetas": [],
+      "ingredientes": "Té verde Sencha (Camellia sinensis).",
+      "alergenos": "No contiene alérgenos de declaración obligatoria.",
+      "nutricional": "Valores medios orientativos. Por 100 ml de infusión preparada sin azúcar: Energía 4 kJ/1 kcal; Grasas 0 g, de las cuales saturadas 0 g; Hidratos de carbono 0,2 g, de los cuales azúcares 0 g; Proteínas 0 g; Sal 0 g."
+    },
+    {
+      "handle": "ginkgo-biloba-a-granel-en-madrid",
+      "titulo": "Ginkgo Biloba",
+      "tipo": "Infusiones",
+      "etiquetas": [],
+      "ingredientes": "100% hoja de ginkgo biloba (Ginkgo biloba).",
+      "alergenos": "No contiene alérgenos de declaración obligatoria.",
+      "nutricional": "Valores medios orientativos por 100 g:\nEnergía 880 kJ / 210 kcal\nGrasas 2.5 g (de las cuales saturadas 0.5 g)\nHidratos de carbono 25 g (de los cuales azúcares 2 g)\nProteínas 9 g\nSal 0.1 g\nFibra 30 g\nValores orientativos; pueden variar según lote y origen."
+    },
+    {
+      "handle": "alubia-pinta-especial-a-granel-en-madrid",
+      "titulo": "Alubia Pinta Especial",
+      "tipo": "Legumbres",
+      "etiquetas": [],
+      "ingredientes": "Alubia seca variedad pinta (100 %).",
+      "alergenos": "No contiene alérgenos de declaración obligatoria.",
+      "nutricional": "Valores medios orientativos por 100 g de producto crudo: Energía 1.420 kJ / 335 kcal; Grasas 1,5 g, de las cuales saturadas 0,3 g; Hidratos de carbono 60 g, de los cuales azúcares 2,5 g; Fibra alimentaria 17 g; Proteínas 21 g; Sal 0,02 g."
+    },
+    {
+      "handle": "ajo-en-polvo",
+      "titulo": "Ajo en Polvo",
+      "tipo": "Especias",
+      "etiquetas": [
+        "ajo",
+        "especias",
+        "sin-azucar-anadido",
+        "vegano"
+      ],
+      "ingredientes": "100% Ajo (Allium sativum) deshidratado y molido.\nSin sal añadida.",
+      "alergenos": "No contiene alérgenos de declaración obligatoria.",
+      "nutricional": "Valores medios orientativos por 100 g:\nEnergía 1385 kJ / 331 kcal\nGrasas 0,7 g (de las cuales saturadas 0,1 g)\nHidratos de carbono 73 g (de los cuales azúcares 2 g)\nProteínas 17 g\nSal 0,1 g\nFibra 9 g\nValores orientativos; pueden variar según lote y origen."
+    },
+    {
+      "handle": "ajenjo-a-granel-en-madrid",
+      "titulo": "Ajenjo",
+      "tipo": "Infusiones",
+      "etiquetas": [],
+      "ingredientes": "100% ajenjo (Artemisia absinthium), parte aérea seca y cortada.",
+      "alergenos": "No contiene alérgenos de declaración obligatoria. No se recomienda en caso de alergia o sensibilidad a la planta o a otras asteráceas (compuestas). No apto durante el embarazo y la lactancia, para menores de 18 años ni con problemas de hígado o de vías biliares. Ante cualquier duda, tratamiento médico o patología previa, consulte a un profesional sanitario antes de consumir.",
+      "nutricional": "Valores medios orientativos por 100 g de producto seco: Energía 1070 kJ / 255 kcal; Grasas 3 g, de las cuales saturadas 0,6 g; Hidratos de carbono 30 g, de los cuales azúcares 3 g; Fibra alimentaria 30 g; Proteínas 12 g; Sal 0,1 g. La infusión ya preparada aporta valores muy inferiores."
+    },
+    {
+      "handle": "harina-de-maiz-a-granel-en-madrid",
+      "titulo": "Harina de Maíz",
+      "tipo": "Harinas",
+      "etiquetas": [],
+      "ingredientes": "Harina de maíz (100%).",
+      "alergenos": "No contiene alérgenos de declaración obligatoria ni cereales con gluten entre sus ingredientes; puede contener trazas (envasado en almacén compartido).",
+      "nutricional": "Valores medios orientativos por 100 g: energía 343 kcal / 1452 kJ; grasas 1,5 g, de las cuales saturadas 0,3 g; hidratos de carbono 76 g, de los cuales azúcares 0,7 g; proteínas 7 g; sal 0,01 g."
+    }
+  ]
+}

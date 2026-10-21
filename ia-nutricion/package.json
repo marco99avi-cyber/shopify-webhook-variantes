@@ -1,0 +1,25 @@
+{
+  "name": "ia-nutricion",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Conocimiento de composición, alérgenos y nutrición para el asistente de A Granel Madrid (Cloudflare Worker).",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.ts",
+    "typecheck": "tsc -p tsconfig.json",
+    "catalogo": "node scripts/construir-catalogo.ts",
+    "auditar": "node scripts/auditar.ts",
+    "evals": "node evals/ejecutar.ts"
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "0.131.0",
+    "@types/node": "22.20.4",
+    "typescript": "7.0.2"
+  }
+}

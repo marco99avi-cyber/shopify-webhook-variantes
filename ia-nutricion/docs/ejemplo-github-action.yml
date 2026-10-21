@@ -1,0 +1,44 @@
+# Ejemplo (no activo aquí): regenerar el catálogo nutricional cada lunes en el repo agranel-chat.
+# Cópialo a agranel-chat/.github/workflows/catalogo-nutricional.yml y crea el secreto
+# SHOPIFY_TOKEN_LECTURA (app personalizada con SOLO read_products).
+# Abre un PR con los cambios en vez de desplegar directamente: así revisas la auditoría antes.
+name: Catálogo nutricional
+
+on:
+  schedule:
+    - cron: '17 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  catalogo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - name: Generar catálogo
+        env:
+          SHOPIFY_TIENDA: a-granel-madrid.myshopify.com
+          SHOPIFY_TOKEN_LECTURA: ${{ secrets.SHOPIFY_TOKEN_LECTURA }}
+        run: node scripts/construir-catalogo.ts --salida src/data/catalogo-nutricional.json
+      - name: Abrir PR si hay cambios
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet; then echo "Sin cambios"; exit 0; fi
+          rama="catalogo/$(date +%Y-%m-%d)"
+          git config user.name "catalogo-bot"
+          git config user.email "catalogo-bot@users.noreply.github.com"
+          git checkout -b "$rama"
+          git add src/data/catalogo-nutricional.json src/data/auditoria-catalogo.md
+          git commit -m "Catálogo nutricional $(date +%Y-%m-%d)"
+          git push -u origin "$rama"
+          gh pr create --title "Catálogo nutricional $(date +%Y-%m-%d)" --body-file src/data/auditoria-catalogo.md
