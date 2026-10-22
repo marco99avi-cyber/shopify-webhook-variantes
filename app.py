@@ -6,6 +6,9 @@ Seguridad:
   cerrado.
 - No se fía del cuerpo del webhook: vuelve a leer el producto en Shopify y usa su precio real.
   Aunque alguien consiguiera una firma válida, no podría elegir precios.
+- Solo actúa en productos nuevos (products/create) que se venden al peso: nunca toca Lotes,
+  Accesorios ni productos con la etiqueta «por-unidad» (si no, un lote de 38,95 € acabaría con
+  una variante de 100 g a 3,90 €).
 - Ignora webhooks repetidos (X-Shopify-Webhook-Id), de otra tienda o de otro tema.
 - No devuelve al llamante detalles internos ni respuestas de la API de Shopify.
 
@@ -13,6 +16,7 @@ Variables de entorno:
 - SHOPIFY_TOKEN: token de la Admin API (read_products + write_products).
 - SHOPIFY_WEBHOOK_SECRET: clave con la que Shopify firma los webhooks.
 - SHOPIFY_API_VERSION (opcional): versión de la Admin API. Por defecto, la que se usaba.
+- SHOPIFY_TIENDA (opcional): dominio myshopify permanente. Por defecto, el de la tienda.
 """
 
 import base64
@@ -20,6 +24,7 @@ import hashlib
 import hmac
 import logging
 import os
+import re
 import threading
 from collections import OrderedDict
 from decimal import ROUND_HALF_UP, Decimal, InvalidOperation
@@ -30,12 +35,23 @@ from flask import Flask, jsonify, request
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 log = logging.getLogger("webhook-variantes")
 
-SHOP = "a-granel-madrid.myshopify.com"
+# Dominio myshopify permanente de la tienda (shop.myshopifyDomain). Shopify lo manda en
+# X-Shopify-Shop-Domain. «a-granel-madrid.myshopify.com» es el que usaba el código antiguo.
+SHOP = os.environ.get("SHOPIFY_TIENDA", "se0usj-8n.myshopify.com").strip().lower()
+if not re.fullmatch(r"[a-z0-9][a-z0-9-]*\.myshopify\.com", SHOP):
+    log.error("SHOPIFY_TIENDA no es un dominio *.myshopify.com válido; uso el de la tienda.")
+    SHOP = "se0usj-8n.myshopify.com"
+DOMINIOS_ACEPTADOS = {SHOP, "se0usj-8n.myshopify.com", "a-granel-madrid.myshopify.com"}
 API_VERSION = os.environ.get("SHOPIFY_API_VERSION", "2024-01").strip()
 ACCESS_TOKEN = os.environ.get("SHOPIFY_TOKEN", "").strip()
 WEBHOOK_SECRET = os.environ.get("SHOPIFY_WEBHOOK_SECRET", "").strip()
 
-TEMAS_ACEPTADOS = {"products/create", "products/update"}
+# Solo altas. Con products/update, editar (o vender) un lote lo convertiría en variantes de peso.
+TEMAS_ACEPTADOS = {"products/create"}
+# Lo que se vende por unidad y nunca debe pasar a 100g/250g/500g/1kg.
+TIPOS_POR_UNIDAD = {"lotes", "lote", "accesorios", "accesorio"}
+ETIQUETAS_POR_UNIDAD = {"lote", "accesorios", "accesorio", "por-unidad", "no-granel"}
+OPCION = "Formato"  # el nombre que usan todas las variantes de peso de la tienda
 TIMEOUT = (5, 15)  # (conexión, lectura) en segundos
 PRECIO_MAX = Decimal("10000")
 MAX_IDS_RECORDADOS = 2000
@@ -112,6 +128,13 @@ def precio_por_kg(valor):
     return precio
 
 
+def se_vende_por_unidad(producto):
+    """Lotes, accesorios o productos marcados «por-unidad»: no son a granel."""
+    tipo = str(producto.get("product_type") or "").strip().lower()
+    etiquetas = {e.strip().lower() for e in str(producto.get("tags") or "").split(",") if e.strip()}
+    return tipo in TIPOS_POR_UNIDAD or bool(etiquetas & ETIQUETAS_POR_UNIDAD)
+
+
 @app.route("/")
 def index():
     return "Webhook activo", 200
@@ -125,7 +148,7 @@ def producto_nuevo():
         log.warning("Webhook rechazado: firma ausente o no válida (ip=%s)", request.remote_addr)
         return jsonify({"error": "No autorizado"}), 401
 
-    if request.headers.get("X-Shopify-Shop-Domain", "").strip().lower() != SHOP:
+    if request.headers.get("X-Shopify-Shop-Domain", "").strip().lower() not in DOMINIOS_ACEPTADOS:
         log.warning("Webhook rechazado: tienda inesperada")
         return jsonify({"error": "No autorizado"}), 401
 
@@ -152,7 +175,7 @@ def producto_nuevo():
         r = requests.get(
             url_producto(producto_id),
             headers=cabeceras_shopify(),
-            params={"fields": "id,variants"},
+            params={"fields": "id,product_type,tags,variants"},
             timeout=TIMEOUT,
         )
     except requests.RequestException as e:
@@ -161,6 +184,8 @@ def producto_nuevo():
         return jsonify({"error": "Error temporal"}), 502
 
     if r.status_code == 404:
+        # Es lo que pasa con la «notificación de prueba» de Shopify: sirve para comprobar la clave.
+        log.info("Webhook con firma válida para el producto %s, que no existe (¿prueba?)", producto_id)
         return jsonify({"msg": "Ignorado, el producto no existe"}), 200
     if r.status_code != 200:
         olvidar(webhook_id)
@@ -168,7 +193,8 @@ def producto_nuevo():
         return jsonify({"error": "Error temporal"}), 502
 
     try:
-        variantes = r.json()["product"]["variants"]
+        producto = r.json()["product"]
+        variantes = producto["variants"]
     except (ValueError, KeyError, TypeError):
         olvidar(webhook_id)
         log.error("Respuesta inesperada de Shopify para el producto %s", producto_id)
@@ -176,6 +202,10 @@ def producto_nuevo():
 
     if not isinstance(variantes, list) or len(variantes) != 1 or variantes[0].get("title") != "Default Title":
         return jsonify({"msg": "Ignorado, ya tiene variantes"}), 200
+
+    if se_vende_por_unidad(producto):
+        log.info("Producto %s ignorado: se vende por unidad (tipo o etiqueta)", producto_id)
+        return jsonify({"msg": "Ignorado, se vende por unidad"}), 200
 
     precio_kg = precio_por_kg(variantes[0].get("price"))
     if precio_kg is None:
@@ -193,7 +223,7 @@ def producto_nuevo():
     payload = {
         "product": {
             "id": producto_id,
-            "options": [{"name": "Cantidad"}],
+            "options": [{"name": OPCION}],
             "variants": variantes_payload,
         }
     }
