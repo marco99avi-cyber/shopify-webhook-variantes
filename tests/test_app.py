@@ -7,7 +7,7 @@ import json
 import pytest
 
 SECRETO = "secreto-de-prueba"
-TIENDA = "a-granel-madrid.myshopify.com"
+TIENDA = "se0usj-8n.myshopify.com"  # shop.myshopifyDomain real
 
 
 class Respuesta:
@@ -51,7 +51,16 @@ def cabeceras(cuerpo, firma=None, tienda=TIENDA, tema="products/create", webhook
     return h
 
 
-PRODUCTO_SIN_VARIANTES = {"product": {"id": 123, "variants": [{"title": "Default Title", "price": "12.00"}]}}
+PRODUCTO_SIN_VARIANTES = {
+    "product": {"id": 123, "product_type": "Especias", "tags": "especias, vegano", "variants": [{"title": "Default Title", "price": "12.00"}]}
+}
+
+
+def producto(precio="12.00", tipo="Especias", etiquetas="", variantes=None):
+    return Respuesta(
+        200,
+        {"product": {"id": 123, "product_type": tipo, "tags": etiquetas, "variants": variantes or [{"title": "Default Title", "price": precio}]}},
+    )
 
 
 @pytest.fixture
@@ -168,20 +177,25 @@ def test_crea_variantes_como_antes(monkeypatch, llamadas):
     llamadas["instalar"](m)
     r = enviar(m, {"id": 123, "variants": [{"title": "Default Title", "price": "12.00"}]})
     assert r.status_code == 200
+    url_get, kw_get = llamadas["get"][0]
+    assert url_get == f"https://{TIENDA}/admin/api/2024-01/products/123.json"
+    assert set(kw_get["params"]["fields"].split(",")) >= {"id", "product_type", "tags", "variants"}
+    assert kw_get["headers"]["X-Shopify-Access-Token"] == "shpat_token_de_prueba"
+    assert kw_get["timeout"]
     url, kw = llamadas["put"][0]
     assert url == f"https://{TIENDA}/admin/api/2024-01/products/123.json"
     assert kw["headers"]["X-Shopify-Access-Token"] == "shpat_token_de_prueba"
     assert kw["timeout"]
-    producto = kw["json"]["product"]
-    assert producto["options"] == [{"name": "Cantidad"}]
-    assert [v["option1"] for v in producto["variants"]] == ["100g", "250g", "500g", "1kg"]
-    assert all(v["requires_shipping"] and v["taxable"] for v in producto["variants"])
+    enviado = kw["json"]["product"]
+    assert enviado["options"] == [{"name": "Formato"}]  # como el resto del catálogo
+    assert [v["option1"] for v in enviado["variants"]] == ["100g", "250g", "500g", "1kg"]
+    assert all(v["requires_shipping"] and v["taxable"] for v in enviado["variants"])
 
 
 def test_redondeo_de_dinero(monkeypatch, llamadas):
     m = cargar(monkeypatch)
     llamadas["instalar"](m)
-    llamadas["respuesta_get"] = Respuesta(200, {"product": {"variants": [{"title": "Default Title", "price": "10.70"}]}})
+    llamadas["respuesta_get"] = producto("10.70")
     enviar(m, {"id": 123})
     precios = [v["price"] for v in llamadas["put"][0][1]["json"]["product"]["variants"]]
     assert precios == ["1.07", "2.68", "5.35", "10.70"]  # 2,675 → 2,68 (redondeo comercial)
@@ -202,7 +216,7 @@ def test_ya_tiene_variantes_en_shopify(monkeypatch, llamadas):
 def test_precios_no_validos(monkeypatch, llamadas, precio):
     m = cargar(monkeypatch)
     llamadas["instalar"](m)
-    llamadas["respuesta_get"] = Respuesta(200, {"product": {"variants": [{"title": "Default Title", "price": precio}]}})
+    llamadas["respuesta_get"] = producto(precio)
     assert enviar(m, {"id": 123}).status_code == 200
     assert llamadas["put"] == []
 
@@ -275,3 +289,79 @@ def test_get_no_permitido_y_raiz(monkeypatch):
     c = m.app.test_client()
     assert c.get("/webhook/producto-nuevo").status_code == 405
     assert c.get("/").status_code == 200
+
+
+# --- Hallazgos de la revisión adversarial ----------------------------------------------------
+
+
+@pytest.mark.parametrize(
+    "tipo,etiquetas",
+    [("Lotes", "lote, lote-otono-2026"), ("Accesorios", "accesorios, regalo"), ("lotes", ""), ("Especias", "por-unidad"), ("Té", "No-Granel")],
+)
+def test_no_convierte_lo_que_se_vende_por_unidad(monkeypatch, llamadas, tipo, etiquetas):
+    m = cargar(monkeypatch)
+    llamadas["instalar"](m)
+    llamadas["respuesta_get"] = producto("38.95", tipo=tipo, etiquetas=etiquetas)
+    r = enviar(m, {"id": 123})
+    assert r.status_code == 200
+    assert llamadas["put"] == [], "un lote de 38,95 € no puede acabar con una variante de 100 g a 3,90 €"
+
+
+def test_tipo_otros_a_granel_si_se_convierte(monkeypatch, llamadas):
+    # «Otros» incluye productos a granel (p. ej. Flor de Árnica): no se excluye por tipo.
+    m = cargar(monkeypatch)
+    llamadas["instalar"](m)
+    llamadas["respuesta_get"] = producto("30.00", tipo="Otros", etiquetas="vegano")
+    assert enviar(m, {"id": 123}).status_code == 200
+    assert len(llamadas["put"]) == 1
+
+
+def test_products_update_se_ignora(monkeypatch, llamadas):
+    m = cargar(monkeypatch)
+    llamadas["instalar"](m)
+    assert enviar(m, {"id": 123}, tema="products/update").status_code == 200
+    assert llamadas["get"] == [] and llamadas["put"] == []
+
+
+@pytest.mark.parametrize("dominio", ["se0usj-8n.myshopify.com", "a-granel-madrid.myshopify.com", "SE0USJ-8N.myshopify.com"])
+def test_acepta_el_dominio_real_y_el_antiguo(monkeypatch, llamadas, dominio):
+    m = cargar(monkeypatch)
+    llamadas["instalar"](m)
+    assert enviar(m, {"id": 123}, tienda=dominio).status_code == 200
+    assert len(llamadas["put"]) == 1
+
+
+def test_cuerpo_utf8_real_se_verifica_sobre_bytes(monkeypatch, llamadas):
+    m = cargar(monkeypatch)
+    llamadas["instalar"](m)
+    cuerpo = '{"id": 123, "title": "Azúcar moreno · ñ \\/ 100%", "body_html": "<p>Café</p>"}'.encode("utf-8")
+    assert enviar(m, cuerpo_bytes=cuerpo).status_code == 200
+    assert len(llamadas["put"]) == 1
+
+
+@pytest.mark.parametrize("respuesta", [Respuesta(429, {"errors": "throttled"}), Respuesta(500, {}), Respuesta(200, None, texto="<html>")])
+def test_get_fallido_devuelve_5xx_y_permite_reintento(monkeypatch, llamadas, respuesta):
+    m = cargar(monkeypatch)
+    llamadas["instalar"](m)
+    llamadas["respuesta_get"] = respuesta
+    r = enviar(m, {"id": 123}, webhook_id="wh-get")
+    assert r.status_code >= 500  # Shopify reintentará
+    assert llamadas["put"] == []
+    llamadas["respuesta_get"] = producto()
+    assert enviar(m, {"id": 123}, webhook_id="wh-get").status_code == 200
+    assert len(llamadas["put"]) == 1
+
+
+def test_producto_inexistente_notificacion_de_prueba(monkeypatch, llamadas):
+    m = cargar(monkeypatch)
+    llamadas["instalar"](m)
+    llamadas["respuesta_get"] = Respuesta(404, {"errors": "Not Found"})
+    r = enviar(m, {"id": 788032119674292922})
+    assert r.status_code == 200
+    assert llamadas["put"] == []
+
+
+def test_dominio_de_tienda_mal_configurado_no_se_usa(monkeypatch, llamadas):
+    monkeypatch.setenv("SHOPIFY_TIENDA", "evil.example.com/x?")
+    m = cargar(monkeypatch)
+    assert m.SHOP == "se0usj-8n.myshopify.com"
