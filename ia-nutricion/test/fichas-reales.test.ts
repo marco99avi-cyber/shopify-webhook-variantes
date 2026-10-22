@@ -169,3 +169,41 @@ describe('auditoría sobre la muestra real', () => {
     }
   });
 });
+
+describe('vegano: falsos positivos reales corregidos', () => {
+  const ficha = (titulo: string, ingredientes: string | null, alergenos: string | null, etiquetas = ['vegano']) =>
+    crearCatalogo({ productos: [{ handle: 'x', titulo, etiquetas, ingredientes, alergenos, nutricional: null }] }).porHandle('x')!;
+
+  it('Caldo de Carne (Vegano)', () => {
+    const f = ficha('Caldo de Carne (Vegano)', 'Mezcla de especias, hortalizas deshidratadas y saborizantes de origen vegetal, con sal.', 'PUEDE CONTENER APIO, CEREALES CON GLUTEN, SOJA, MOSTAZA Y LECHE.');
+    assert.equal(f.vegano.estado, 'si');
+  });
+  it('Condimento Ternera Mechada', () => {
+    assert.notEqual(ficha('Condimento Ternera Mechada', 'Mezcla de especias y hierbas secas.', 'No contiene alérgenos.').vegano.estado, 'no');
+  });
+  it('Fideuá de Mar y Montaña: el fideo es vegano, pero avisa de pescado en la receta', () => {
+    const f = ficha(
+      'Fideuá de Mar y Montaña',
+      'Fideo de sémola de trigo duro. Receta pensada para fideuá de mar y montaña: combínalo en la preparación con fumet de pescado, marisco y setas al gusto.',
+      'Contiene gluten (trigo). Producto pensado para platos de mar y montaña: en la preparación puede incorporar pescado, crustáceos y moluscos.',
+    );
+    assert.equal(f.vegano.estado, 'si');
+    assert.equal(f.gluten.veredicto, 'contiene');
+    assert.equal(f.alergenos.find((a) => a.id === 'pescado')?.estado, 'puede_contener');
+  });
+  it('Preparado de Caracoles: no lleva caracoles', () => {
+    const f = ficha('Preparado de Caracoles', 'Mezcla de especias para cocinar caracoles. Lista exacta de ingredientes pendiente de confirmar con el proveedor.', 'Sin confirmar.');
+    assert.ok(!f.alergenos.some((a) => a.id === 'moluscos' && a.estado === 'contiene'));
+    assert.notEqual(f.vegano.estado, 'no');
+  });
+  it('Miel cruda: el título sí cuenta cuando el producto ES el ingrediente', () => {
+    assert.equal(ficha('Miel Cruda de Romero', null, 'No contiene alérgenos.', []).vegano.estado, 'no');
+  });
+});
+
+describe('auditoría: no audita lo que no es alimento', () => {
+  it('un molinillo sin ficha nutricional no es un hallazgo', () => {
+    const cat = crearCatalogo({ productos: [{ handle: 'molinillo', titulo: 'Molinillo Eléctrico', tipo: 'Accesorios', ingredientes: null, alergenos: null, nutricional: null }] });
+    assert.equal(auditarCatalogo(cat).length, 0);
+  });
+});

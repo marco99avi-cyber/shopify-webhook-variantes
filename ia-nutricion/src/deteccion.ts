@@ -47,6 +47,11 @@ const PRIORIDAD: Record<EstadoAlergeno, number> = {
 
 type Marcador = 'contiene' | 'puede_contener' | 'negado' | null;
 
+/** «para cocinar caracoles», «para marinar pescado»: el término es el destino, no un ingrediente. */
+const VERBOS_DE_USO = new Set(['cocinar', 'preparar', 'acompanar', 'sazonar', 'condimentar', 'marinar', 'rebozar', 'guisar', 'alinar', 'hacer', 'elaborar']);
+/** Frases de sugerencia de receta: lo que viene detrás no está en el producto. */
+const SUGERENCIA = new Set(['combinalo', 'combinala', 'acompanalo', 'acompanala', 'sirvelo', 'sirvela', 'sugerencia']);
+
 /** Lo que gobierna al término en la posición `i`, buscando hacia atrás dentro de su frase. */
 export function marcadorPrevio(tokens: readonly string[], i: number): Marcador {
   let puntuacionEntre = false;
@@ -60,6 +65,11 @@ export function marcadorPrevio(tokens: readonly string[], i: number): Marcador {
     const distancia = i - j;
     const siguiente = tokens[j + 1];
     const anterior = tokens[j - 1];
+
+    // Propósito: «para pescado», «para cocinar caracoles» (no «masa para pizza de trigo»).
+    if (!puntuacionEntre && t === 'para' && (distancia === 1 || (distancia === 2 && VERBOS_DE_USO.has(tokens[i - 1])))) {
+      return 'negado';
+    }
 
     // Negaciones de alcance corto: «sin gluten», «libre de lactosa», «no soja», «no es un fruto…»
     if (!puntuacionEntre && distancia <= 5) {
@@ -80,6 +90,9 @@ export function marcadorPrevio(tokens: readonly string[], i: number): Marcador {
       continue;
     }
     if (t === 'traza' || t === 'compartido' || t === 'compartida' || t === 'posible') return 'puede_contener';
+    // «en la preparación puede incorporar pescado»: aviso, no ingrediente.
+    if (t === 'incorporar' && (anterior === 'puede' || anterior === 'pueden')) return 'puede_contener';
+    if (SUGERENCIA.has(t)) return 'negado';
     if (t === 'cruzado' && anterior === 'contacto') return 'puede_contener';
     if (t === 'tambien' && (anterior === 'que' || anterior === 'donde')) return 'puede_contener';
   }

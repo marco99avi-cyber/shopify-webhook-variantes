@@ -26,7 +26,7 @@ jobs:
       - run: npm test
       - name: Generar catálogo
         env:
-          SHOPIFY_TIENDA: a-granel-madrid.myshopify.com
+          SHOPIFY_TIENDA: se0usj-8n.myshopify.com
           SHOPIFY_TOKEN_LECTURA: ${{ secrets.SHOPIFY_TOKEN_LECTURA }}
         run: node scripts/construir-catalogo.ts --salida src/data/catalogo-nutricional.json
       - name: Abrir PR si hay cambios

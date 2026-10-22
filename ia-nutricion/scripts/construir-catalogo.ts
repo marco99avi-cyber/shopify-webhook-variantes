@@ -4,7 +4,7 @@
  *   data/auditoria-catalogo.md      → fichas incoherentes o incompletas para revisar
  *
  * Uso (Node 22.18+):
- *   SHOPIFY_TIENDA=a-granel-madrid.myshopify.com \
+ *   SHOPIFY_TIENDA=se0usj-8n.myshopify.com \
  *   SHOPIFY_TOKEN_LECTURA=shpat_... \
  *   node scripts/construir-catalogo.ts [--salida data/catalogo-nutricional.json]
  *
@@ -23,7 +23,8 @@ import { auditarCatalogo, informeMarkdown } from '../src/auditoria.ts';
 import { crearCatalogo, VERSION_MOTOR, type DatosCatalogo } from '../src/catalogo.ts';
 import { type ProductoCrudo } from '../src/ficha.ts';
 
-const TIENDA = process.env.SHOPIFY_TIENDA ?? 'a-granel-madrid.myshopify.com';
+// Dominio myshopify permanente de la tienda (shop.myshopifyDomain).
+const TIENDA = process.env.SHOPIFY_TIENDA ?? 'se0usj-8n.myshopify.com';
 const TOKEN = process.env.SHOPIFY_TOKEN_LECTURA ?? '';
 const VERSION_API = process.env.SHOPIFY_API_VERSION ?? '2026-07';
 

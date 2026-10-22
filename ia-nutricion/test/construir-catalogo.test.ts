@@ -29,7 +29,7 @@ describe('scripts/construir-catalogo.ts (Shopify simulado)', () => {
     assert.ok(!datos.productos.some((p: { handle: string }) => p.handle === 'tarjeta-regalo' || p.handle === 'borrador-oculto'));
     assert.ok(!datos.productos.some((p: { etiquetas: string[] }) => p.etiquetas.some((e) => /^(ag-|ia-)/.test(e))));
     assert.equal(datos.productos[0].gramosRacion, 40);
-    assert.equal(datos.version, '1');
+    assert.equal(datos.version, '2');
     assert.ok(datos.productos.every((p: { hechos?: { g: string } }) => typeof p.hechos?.g === 'string'), 'hechos precalculados');
     assert.ok(existsSync(join(dir, 'auditoria-catalogo.md')));
     assert.ok(!r.stdout.includes('shpat_prueba_secreto') && !r.stderr.includes('shpat_prueba_secreto'), 'el token no se imprime');

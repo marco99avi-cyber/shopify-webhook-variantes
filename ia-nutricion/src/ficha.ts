@@ -321,7 +321,13 @@ export function veganoDe(
 ): Ficha['vegano'] {
   const animales = [
     ...ALERGENOS_ANIMALES.filter((id) => det.alergenos[id].estado === 'contiene').map((id) => NOMBRE_ALERGENO[id].toLowerCase()),
-    ...ingredientesAnimales(`${titulo}. ${ingredientes ?? ''}`).map(mostrar),
+    ...ingredientesAnimales(ingredientes ?? '').map(mostrar),
+    // El título solo cuenta si no hay lista de ingredientes, el producto ES ese ingrediente
+    // («Miel cruda…») y no se anuncia como vegano («Caldo de carne (vegano)»).
+    ...(ingredientes || /\b(vegan[oa]s?|vegetal(es)?)\b/.test(tokenizar(titulo).join(' '))
+      ? []
+      : ingredientesAnimales(titulo).filter((t) => tokenizar(titulo)[0] === tokenizar(t)[0])
+    ).map(mostrar),
     ...aditivos.filter((a) => a.origenAnimal === true).map((a) => `${a.codigo} (${a.nombre})`),
   ];
   if (animales.length) return { estado: 'no', motivo: `Lleva ingredientes de origen animal: ${lista([...new Set(animales)])}.` };

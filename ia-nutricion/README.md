@@ -96,7 +96,7 @@ Crea en Shopify una app personalizada con **solo** el permiso `read_products` y 
 
 ```bash
 npm ci --ignore-scripts
-SHOPIFY_TIENDA=a-granel-madrid.myshopify.com SHOPIFY_TOKEN_LECTURA=shpat_xxx npm run catalogo
+SHOPIFY_TIENDA=se0usj-8n.myshopify.com SHOPIFY_TOKEN_LECTURA=shpat_xxx npm run catalogo
 ```
 
 Genera:
@@ -109,7 +109,7 @@ Regenéralo antes de cada despliegue o cuando cambien fichas. En `docs/ejemplo-g
 ## Tests y evaluaciones
 
 ```bash
-npm test            # 130 tests deterministas sobre 50 productos reales; no gastan nada
+npm test            # 141 tests deterministas sobre 50 productos reales; no gastan nada
 npm run typecheck
 npm run evals       # 36 preguntas reales contra el modelo de verdad (cuesta tokens)
 ```

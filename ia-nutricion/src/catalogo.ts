@@ -12,7 +12,7 @@ import { crearFicha, type EstadoAzucarAnadido, type Ficha, type ProductoCrudo, t
 import { normalizar, singular, tokensDeBusqueda } from './texto.ts';
 
 /** Súbelo cuando cambie la lógica de veredictos: invalida los hechos precalculados. */
-export const VERSION_MOTOR = '1';
+export const VERSION_MOTOR = '2';
 
 /** Lo mínimo para filtrar sin calcular la ficha entera. Claves cortas: viaja en el JSON. */
 export interface Hechos {

@@ -140,9 +140,13 @@ function reglas(f: Ficha): Array<Omit<Hallazgo, 'handle' | 'titulo'>> {
   return h;
 }
 
+/** Lo que no es alimento no necesita ficha nutricional (molinillos, tarros…). */
+const NO_ALIMENTOS = new Set(['accesorios', 'accesorio']);
+
 export function auditarCatalogo(cat: Catalogo): Hallazgo[] {
   const salida: Hallazgo[] = [];
   for (const f of cat.fichas) {
+    if (NO_ALIMENTOS.has((f.tipo ?? '').trim().toLowerCase())) continue;
     for (const r of reglas(f)) salida.push({ handle: f.handle, titulo: f.titulo, ...r });
   }
   return salida.sort((a, b) => ORDEN[a.gravedad] - ORDEN[b.gravedad] || a.regla.localeCompare(b.regla) || a.titulo.localeCompare(b.titulo, 'es'));

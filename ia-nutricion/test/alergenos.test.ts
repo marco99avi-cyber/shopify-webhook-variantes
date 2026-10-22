@@ -124,3 +124,24 @@ describe('detección de alérgenos: falsos amigos y exenciones', () => {
     assert.equal(estado('\uFF34\uFF32\uFF29\uFF27\uFF2F', 'gluten'), 'contiene');
   });
 });
+
+describe('propósito y sugerencias de receta (casos reales del catálogo)', () => {
+  it('«mezcla de especias para cocinar caracoles» no lleva caracoles', () => {
+    assert.equal(estado('Mezcla de especias para cocinar caracoles.', 'moluscos'), 'negado');
+  });
+  it('«combínalo con caldo de verduras o de carne» es una sugerencia', () => {
+    assert.equal(estado('Fideo de sémola de trigo duro. Combínalo en la preparación con fumet de pescado, marisco y setas al gusto.', 'pescado'), 'negado');
+    assert.equal(estado('Fideo de sémola de trigo duro. Combínalo con fumet de pescado.', 'gluten'), 'contiene');
+  });
+  it('«en la preparación puede incorporar pescado, crustáceos y moluscos» → puede contener', () => {
+    const r = detectarAlergenos('Producto pensado para platos de mar y montaña: en la preparación puede incorporar pescado, crustáceos y moluscos.');
+    assert.equal(r.alergenos.pescado.estado, 'puede_contener');
+    assert.equal(r.alergenos.crustaceos.estado, 'puede_contener');
+    assert.equal(r.alergenos.moluscos.estado, 'puede_contener');
+  });
+  it('«masa para pizza de trigo» sí lleva trigo', () => {
+    assert.equal(estado('Masa para pizza de trigo.', 'gluten'), 'contiene');
+    assert.equal(estado('Harina de trigo para rebozar pescado.', 'gluten'), 'contiene');
+    assert.equal(estado('Harina de trigo para rebozar pescado.', 'pescado'), 'negado');
+  });
+});
